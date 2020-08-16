@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build-env
+    volumes:
+      - ./:/go/src
+    command: realize start --run
+    ports: 
+      - "8080:8080"
+    restart: always
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: go-gin-crud-sample
+      POSTGRES_PASSWORD: go-gin-crud-sample
+      POSTGRES_DB: go-gin-crud-sample
+    ports:
+      - 5432:5432
