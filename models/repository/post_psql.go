@@ -1,7 +1,9 @@
 package repository
 
 import (
-	"github.com/go-gin/gin"
+	"fmt"
+
+	"github.com/gin-gonic/gin"
 	"github.com/os-hun/go-gin-crud-sample/db"
 	"github.com/os-hun/go-gin-crud-sample/models"
 	"github.com/os-hun/go-gin-crud-sample/api"
@@ -53,7 +55,7 @@ func (_ PostRepository) UpdateByID(id int, c *gin.Context) (api.Post, error) {
     if err := c.BindJSON(&p); err != nil {
         return p, err
     }
-    fmt.Printf("%+V", p)
+    fmt.Printf("%v", p)
     p.ID = uint(id)
     p.UserID = userID
     db.Save(&p)

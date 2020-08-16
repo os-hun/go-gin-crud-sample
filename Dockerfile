@@ -9,13 +9,11 @@ RUN apk add --no-cache \
   tini
 
 RUN go get -u -v \
-  github.com/oxequa/realize && \
-  github.com/jinzhu/gorm && \
-  github.com/jinzhu/gorm/dialects/postgres
+  github.com/oxequa/realize
 
 WORKDIR /go/src
 COPY . .
-RUN go build -o server main.go
+RUN go build -o server server.go
 
 EXPOSE 8080
 ENTRYPOINT ["/sbin/tini", "--"]

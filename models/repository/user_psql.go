@@ -8,7 +8,7 @@ import (
 
 type UserRepository struct {}
 
-type User models.user
+type User models.User
 
 type UserProfile struct {
 	Name string

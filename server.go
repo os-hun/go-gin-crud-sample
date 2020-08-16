@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/os-hun/go-gin-crud-sample/db"
-	"github.com/os-hun/go-gin-crud-sample/config/server"
+	"github.com/os-hun/go-gin-crud-sample/config/routes"
 )
 
 func main() {
 	db.Init()
-	server.Init()
+	routes.Init()
 	db.Close()
 }
